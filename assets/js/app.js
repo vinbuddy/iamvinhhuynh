@@ -9,6 +9,7 @@ const pauseBtn = document.querySelector('#pause')
 const loading = document.querySelector('.loading')
 const toast = document.querySelector('.toast')
 
+const visitorCount =  document.querySelector('.visitor__count')
 
 var isPlaying = false; // off
 
@@ -22,6 +23,13 @@ function hide(element, showClass, hideClass) {
     element.classList.add(hideClass)
 }
 
+function updateVisitor() {
+    fetch('https://api.countapi.xyz/update/iamvinhhuynh/vinh/?amount=1')
+        .then((response) => response.json())
+        .then((response) => {
+            visitorCount.innerHTML = response.value
+        })
+}
 
 
 
@@ -73,6 +81,9 @@ function start () {
         }, 12000)
 
     }
+
+    // update vistor
+    updateVisitor()
 }
 
 start();
