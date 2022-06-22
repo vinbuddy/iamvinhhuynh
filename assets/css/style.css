@@ -1,0 +1,325 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black-color: #000;
+    --white-color: #fff;
+}
+
+/* custom */
+::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.typed-cursor {
+    display: none;
+}
+
+/* ----------------------- */
+
+.mg-row-top {
+    margin-top: 94px;
+}
+
+html {
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--black-color);
+    
+    /* background-color: #f3ae45; */
+}
+
+.toast {
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: calc(94px + 20px);
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 8px solid #0077b6;
+    transition: all linear 0.5s;
+    visibility: hidden; 
+    transform: translateX(105%);
+}
+
+.toast.show-toast {
+    animation: showToast ease 1s;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.toast img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.toast span {
+    font-size: 17px;
+    color: #333;
+}
+
+.main {
+    position: relative;
+}
+
+.loading {
+    z-index: 3;
+    position: fixed;
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loading__logo {
+    width: 100px;
+}
+
+.loading__bar {
+    width: 250px;
+    height: 7px;
+    border-radius: 4px;
+    background: #cfcfcf;
+    margin-top: 22px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loading__bar::after {
+    content: '';
+    width: 250px;
+
+    height: 7px;
+    background: #f3ae45;
+    position: absolute;
+    left: -200px;
+    animation: loading 2s ease infinite;
+}
+
+.header {
+    background-color: var(--black-color);
+}
+
+.header__background {
+    position: relative;
+    width: 100%;
+}
+
+.header__background .header__man  {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    margin-top: 39px;
+    position:relative;
+    /* alternate dung de luan phien quay lai animation */
+    /* animation: upDown 5s ease-in-out alternate infinite; */
+}
+
+
+.nav {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.nav__img {
+    width: 70px;
+    border-radius: 8px;
+    box-shadow: 0 4px 17px 1px rgba(0,0,0, 0.2);
+
+}
+
+.nav__list {
+    list-style: none;
+}
+
+.nav__item {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+
+.nav__social {
+    display: block;
+    color: #fff;
+    font-weight: 900;
+    text-decoration: none;
+    padding: 16px 22px; 
+    background-color: rgba(26,25,29,0.5);
+    border-radius: 10px;
+    transition: all ease 0.5s;
+
+
+}
+
+.nav__social:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+
+
+.nav__social > i {
+    font-size: 24px;
+}
+
+.intro {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.intro__title {
+    color: var(--white-color);
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 80px;
+    line-height: 1;
+}
+
+.intro__desc {
+    color: #dfdfdf;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 50px;
+}
+
+.intro__suggest {
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.intro__ask {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.intro__wrap {
+    display: flex;
+
+}
+
+.intro__btn {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    width: 60px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--white-color);
+}
+
+.intro__btn img{
+    margin: auto;
+    width: 57px;
+    padding: 14px 16px;
+
+}
+
+
+/* Lúc đang */
+.intro__btn.playing #pause {
+    display: block;
+}
+
+.intro__btn.playing #play {
+    display: none;
+}
+
+#pause {
+    display: none;
+}
+
+.intro__song {
+    z-index: 1;
+    margin-left: 3px;
+    position: relative;
+    display: flex;
+    border-radius: 5px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    opacity: 0;
+}
+
+.intro__name {
+    color: var(--black-color);
+    font-size: 13;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.intro__singer {
+    color: var(--black-color);
+
+    font-size: 12px;
+}
+
+.intro__img {
+    object-fit: cover;
+    width: 30px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+
+
+.intro__song.show-song {
+    animation: songAppearance linear 0.5s;
+    opacity: 1;
+}
+
+.intro__song.hide-song {
+    animation: songDisappearance linear 0.5s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro__scroll i {
+    position: relative;
+    margin: 40px;
+    color: var(--white-color);
+    font-size: 50px;
+    cursor: pointer;
+    animation: upDown 0.7s ease-in-out alternate infinite;
+}
+
+
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+
+.about__notify {
+    font-size: 40px;
+    font-family: 'Shadows Into Light', cursive;
+    letter-spacing: 2px;
+    color: var(--white-color);
+}

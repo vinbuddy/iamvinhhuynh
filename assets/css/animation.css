@@ -1,0 +1,55 @@
+@keyframes songAppearance {
+    from {
+        opacity: 0;
+        left: -75px;
+    } to {
+        opacity: 1;
+        left: 0;
+    }
+}
+
+@keyframes songDisappearance {
+    from {
+        opacity: 1;
+        left: 0;
+    } to {
+        opacity: 0;
+        left: -75px;
+    }
+}
+
+@keyframes upDown {
+    from {
+        left:0px;
+        top: -5px;
+
+    }
+     
+     to {
+        left:0px;
+        top: 5px;
+
+    }
+}
+
+@keyframes loading {
+    50%{
+        left: 200px;
+    }
+}
+
+@keyframes showToast {
+    from {
+        transform: translateX(105%);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes hideToast {
+    from {
+        transform: translateX(0);
+    } to {
+        transform: translateX(105%);
+    }
+}
