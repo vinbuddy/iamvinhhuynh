@@ -610,12 +610,12 @@
 
 /* custom */
 @media (min-width: 1240px) {
-    .main { 
+    /* .main { 
         width: 100vw;
         height: 100vh;
         scroll-snap-type: y mandatory;
         overflow-y: scroll;
-    }
+    } */
 
     section {
         height: 100vh;

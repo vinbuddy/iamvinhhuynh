@@ -13,28 +13,25 @@ const visitorCount =  document.querySelector('.visitor__count')
 
 var isPlaying = false; // off
 
+// sub function
 function show(element, showClass, hideClass) {
     element.classList.remove(hideClass)
     element.classList.add(showClass)
 }
-
 function hide(element, showClass, hideClass) {
     element.classList.remove(showClass)
     element.classList.add(hideClass)
 }
 
 function updateVisitor() {
-    fetch('https://api.countapi.xyz/update/iamvinhhuynh/vinh/?amount=1')
+    fetch('https://api.countapi.xyz/update/vin/vin123/?amount=1')
         .then((response) => response.json())
         .then((response) => {
             visitorCount.innerHTML = response.value
         })
 }
 
-
-
-function start () {
-
+function handleSong() {
     audioBtn.onclick = function () {
         // khi playing => pause
         if (isPlaying) {
@@ -60,7 +57,9 @@ function start () {
     
         }
     }
+}
 
+function preload() {
     // Ẩn preload và hiện toast sau khi load xong
     window.onload = function () {
         // sau 1s sẽ tắt preload
@@ -69,9 +68,7 @@ function start () {
         }, 1000)
 
         setTimeout(function () {
-
             toast.classList.add('show-toast')
-            
         }, 5000)
 
         setTimeout(function () {
@@ -81,8 +78,16 @@ function start () {
         }, 12000)
 
     }
+}
 
-    // update vistor
+function scrollReveal() {
+    
+}
+
+function start () {
+
+    handleSong()
+    preload()
     updateVisitor()
 }
 
