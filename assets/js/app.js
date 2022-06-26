@@ -24,7 +24,7 @@ function hide(element, showClass, hideClass) {
 }
 
 function updateVisitor() {
-    fetch('https://api.countapi.xyz/update/vin/vin123/?amount=1')
+    fetch('https://api.countapi.xyz/update/vin/vin/?amount=1')
         .then((response) => response.json())
         .then((response) => {
             visitorCount.innerHTML = response.value
@@ -52,8 +52,9 @@ function handleSong() {
         // xu ly ended 
         audio.onended = function () {
             audioBtn.classList.remove('playing')
-    
             hide(song, 'show-song', 'hide-song')
+
+            isPlaying = false // khi hết bài chuyển về false để quay về logic ban đầu
     
         }
     }
@@ -78,10 +79,6 @@ function preload() {
         }, 12000)
 
     }
-}
-
-function scrollReveal() {
-    
 }
 
 function start () {
